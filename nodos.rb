@@ -11,7 +11,7 @@ class Singular < Mutador
 	end
 
 	def withString(z)
-		a = z.chars.each {|i| if ["s","i","n","g","u","l","a","r"].include?(i) then i.upcase else i end}
+		a = z.chars.each.map {|i| if ["s","i","n","g","u","l","a","r"].include?(i) then i.upcase else i end}
 		return a.join
 	end
 
