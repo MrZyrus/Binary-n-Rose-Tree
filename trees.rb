@@ -1,3 +1,6 @@
+#05-38040 José Cipagauta
+#06-39883 Nicolas Mañan
+
 require_relative 'nodos.rb'
 require_relative 'mod_bfs.rb'
 require_relative 'mod_fold.rb'
