@@ -3,7 +3,7 @@ end
 
 class Singular < Mutador
 	def withFixnum(z)
-		a = z.to_s.chars.map{|i| i.to_i}
+		a = z.to_s.chars.map {|i| i.to_i}
 		b = a.pop
 		x = a.reduce(:+)
 		return x * b if x != nil
@@ -11,8 +11,7 @@ class Singular < Mutador
 	end
 
 	def withString(z)
-		a = []
-		z.chars.each{|i| if ["s","i","n","g","u","l","a","r"].include?(i) then a.push(i.upcase) else a.push(i) end}
+		a = z.chars.each {|i| if ["s","i","n","g","u","l","a","r"].include?(i) then i.upcase else i end}
 		return a.join
 	end
 
@@ -23,30 +22,25 @@ end
 
 class Uniforme < Mutador
 	def withFixnum(z)
-		a = z.to_s.chars.map{|i| i.to_i}
-		b = a.pop
-		a.each {|i| b = b + i}
-		return (b.to_f / (a.size + 1)).round
+		a = z.to_s.chars.map {|i| i.to_i}
+		b = a.reduce(:+)
+		return (b.to_f / a.size).round
 	end
 
 	def withString(z)
-		a = []
-		z.chars.each_index{|i| if i.odd? then a.push(z[i].upcase) else a.push(z[i].downcase) end}
+		a = z.chars.each_index.map {|i| if i.odd? then z[i].upcase else z[i].downcase end}
 		return a.join
 	end
 
 	def withArray(z)
-		a = []
-		z.each {|i| a.push(i.mutar(Uniforme))}
-		return a
-	end	
+		return z.each.map {|i| i.mutar(Uniforme)}
+	end
 end
 
 class Oscuro < Mutador
 	def withFixnum(z)
-		a = z.to_s.chars.map{|i| i.to_i}
-		b = []
-		a.each_index {|i| b.push(a[i]) if i.even?}
+		a = z.to_s.chars.map {|i| i.to_i}
+		b = a.each_index.map {|i| a[i] if i.even?}
 		return b.join.to_i
 	end
 
@@ -59,9 +53,7 @@ class Oscuro < Mutador
 
 	def withArray(z)
 		r = (0..z.size-1).to_a.sample(z.size/2)
-		a = []
-		z.each_index {|i| if r.include?(i) then a.push(z[i].mutar(Oscuro)) else a.push(z[i]) end}
-		return a
+		return z.each_index.map {|i| if r.include?(i) then z[i].mutar(Oscuro) else z[i] end}
 	end
 end
 
