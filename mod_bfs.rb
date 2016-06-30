@@ -10,8 +10,6 @@ module BFS
 	end
 
 	def recoger(&block)
-		a = []
-		self.bfs {|i| a.push(i) if block.call(i)}
-		return a
+		return self.bfs.map {|i| i if block.call(i)}
 	end
 end
