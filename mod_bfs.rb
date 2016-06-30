@@ -1,3 +1,6 @@
+#05-38040 José Cipagauta
+#06-39883 Nicolas Mañan
+
 module BFS
 	def bfs	#bfs method, traverses the tree using Breadth First Search
 		q = Queue.new	#Easy implementation using a queue
