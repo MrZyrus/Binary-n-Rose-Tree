@@ -1,7 +1,6 @@
 module DFS
 	def dfs
-		q = []
-		q.push(self)
+		q = [self]
 		while not q.empty? do
 			r = q.pop
 			r.each {|i| q.push(i)}
