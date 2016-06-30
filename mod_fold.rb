@@ -1,3 +1,6 @@
+#05-38040 José Cipagauta
+#06-39883 Nicolas Mañan
+
 module DFS
 	def dfs	#dfs method, traverses the tree using Depth First Search
 		q = [self]	#Using an array, the methods pop and push from ruby treat it as a stack
