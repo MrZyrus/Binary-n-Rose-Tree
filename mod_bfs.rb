@@ -9,7 +9,7 @@ module BFS
 		end
 	end
 
-	def recoger(&block)
+	def recoger(block)
 		a = []
 		self.bfs {|i| a.push(i) if block.call(i)}
 		return a
