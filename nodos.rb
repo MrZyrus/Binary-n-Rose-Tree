@@ -5,9 +5,8 @@ class Singular < Mutador
 	def withFixnum(z)
 		a = z.to_s.chars.map{|i| i.to_i}
 		b = a.pop
-		x = 0
-		a.each {|i| x = x + i}
-		return x * b if x != 0
+		x = a.reduce(:+) {|i| x = x + i}
+		return x * b if x != nil
 		return b
 	end
 
