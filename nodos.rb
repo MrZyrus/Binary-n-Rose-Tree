@@ -1,3 +1,6 @@
+#05-38040 José Cipagauta
+#06-39883 Nicolas Mañan
+
 class Mutador	#Super class
 end
 
