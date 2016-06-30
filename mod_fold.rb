@@ -1,6 +1,6 @@
 module DFS
-	def dfs
-		q = [self]
+	def dfs	#dfs method, traverses the tree using Depth First Search
+		q = [self]	#Using an array, the methods pop and push from ruby treat it as a stack
 		while not q.empty? do
 			r = q.pop
 			r.each {|i| q.push(i)}
@@ -8,8 +8,8 @@ module DFS
 		end
 	end
 
-	def fold(x)
+	def fold(x)	#Traverses the array using dfs and applies the function passed by the implicit block
 		self.dfs {|i| x = yield(i,x)}
-		return x
+		return x	#Returns a single value, of having applied the block with all the nodes in the tree
 	end
 end
