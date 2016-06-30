@@ -27,7 +27,7 @@ class Uniforme < Mutador
 	end
 
 	def withString(z)
-		a = z.chars.each_index.map {|i| if i.odd? then z[i].upcase else z[i].downcase end}
+		a = z.chars.each_index.map {|i| if i.even? then z[i].upcase else z[i].downcase end}
 		return a.join
 	end
 
