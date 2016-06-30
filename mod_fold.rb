@@ -9,7 +9,7 @@ module DFS
 	end
 
 	def fold(x)
-		self.dfs {|i| x = yield(x,i)}
+		self.dfs {|i| x = yield(i,x)}
 		return x
 	end
 end
