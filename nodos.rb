@@ -23,8 +23,7 @@ end
 class Uniforme < Mutador
 	def withFixnum(z)
 		a = z.to_s.chars.map {|i| i.to_i}
-		b = a.reduce(:+)
-		return (b.to_f / a.size).round
+		return (a.reduce(:+).to_f / a.size).round
 	end
 
 	def withString(z)
@@ -59,21 +58,18 @@ end
 
 class Fixnum
 	def mutar(x)
-		a = x.new
-		return a.withFixnum(self)
+		return x.new.withFixnum(self)
 	end
 end
 
 class String
 	def mutar(x)
-		a = x.new
-		return a.withString(self)
+		return x.new.withString(self)
 	end
 end
 
 class Array
 	def mutar(x)
-		a = x.new
-		return a.withArray(self)
+		return x.new.withArray(self)
 	end
 end
