@@ -40,7 +40,7 @@ end
 class ArbolRosa < Tree
 	@childs
 
-	def initialize(x, c = nil)
+	def initialize(x, *c)
 		@value = x
 		@childs = c
 	end
