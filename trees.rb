@@ -8,7 +8,7 @@ class Tree
 
 	@value
 
-	def getter
+	def valor
 		return @value
 	end
 
