@@ -1,8 +1,8 @@
-class Mutador
+class Mutador	#Super class
 end
 
 class Singular < Mutador
-	def withFixnum(z)
+	def withFixnum(z)	#Method with fixnum
 		a = z.to_s.chars.map {|i| i.to_i}
 		b = a.pop
 		x = a.reduce(:+)
@@ -10,18 +10,18 @@ class Singular < Mutador
 		return b
 	end
 
-	def withString(z)
+	def withString(z)	#With strings
 		a = z.chars.each.map {|i| if ["s","i","n","g","u","l","a","r"].include?(i) then i.upcase else i end}
 		return a.join
 	end
 
-	def withArray(z)
+	def withArray(z)	#With arrays
 		return z.flatten.join(" ")
 	end
 end
 
-class Uniforme < Mutador
-	def withFixnum(z)
+class Uniforme < Mutador	#All of these classes are basically the same, methods with the defined types
+	def withFixnum(z)	#The actual way of mutate was as asked. Do notice all mutators return a value of the same type
 		a = z.to_s.chars.map {|i| i.to_i}
 		return (a.reduce(:+).to_f / a.size).round
 	end
@@ -56,7 +56,7 @@ class Oscuro < Mutador
 	end
 end
 
-class Fixnum
+class Fixnum	#Extending the classes, so they can mutate, notice the value isn't actually changed though, can't change self.
 	def mutar(x)
 		return x.new.withFixnum(self)
 	end
